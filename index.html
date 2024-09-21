@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fantasy room with roof</title>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene raycaster-autorefresh>
+            <a-assets>
+                <img id="sky-image" src="assets/skybox.png">
+                <img id="wall" src="assets/wall.jpg">
+                <img id="floor" src="assets/floor.jpg">
+                <img id="inside_roof" src="assets/inside_roof.jpg">
+            </a-assets>
+
+            <a-sky src="#sky-image" rotation="0 -90 0"></a-sky>
+
+            <!-- Стены комнаты -->
+            <a-box position="0 1.5 -5" width="10" height="3" depth="0.1" src="#wall" side="double"></a-box>
+            <a-box position="0 1.5 10" width="10" height="3" depth="0.1" src="#wall" side="double"></a-box>
+            <a-box position="-5 1.5 2.5" width="0.1" height="3" depth="15" src="#wall" side="double"></a-box>
+            <a-box position="5 1.5 2.5" width="0.1" height="3" depth="15" src="#wall" side="double"></a-box>
+
+            <!-- Пол -->
+            <a-plane static-body src="#floor" position="0 0 2.5" rotation="-90 0 0" width="10" height="15"></a-plane>
+
+            <!-- Крыша -->
+            <!-- Левая часть крыши -->
+            <a-triangle static-body
+                        vertex-a="-5 3 5"
+                        vertex-b="-5 3 -5"
+                        vertex-c="0 10 0"
+                        material="src: #inside_roof; side: double">
+            </a-triangle>
+
+            <!-- Задняя часть крыши -->
+            <a-triangle static-body
+                        vertex-a="-5 3 5"
+                        vertex-b="5 3 5"
+                        vertex-c="0 10 0"
+                        material="src: #inside_roof; side: double">
+            </a-triangle>
+
+            <!-- Передняя часть крыши -->
+            <a-triangle static-body
+                        vertex-a="-5 3 -5"
+                        vertex-b="5 3 -5"
+                        vertex-c="0 10 0"
+                        material="src: #inside_roof; side: double">
+            </a-triangle>
+
+            <!-- Правая часть крыши -->
+            <a-triangle static-body
+                        vertex-a="5 3 -5"
+                        vertex-b="5 3 5"
+                        vertex-c="0 10 0"
+                        material="src: #inside_roof; side: double">
+            </a-triangle>
+
+            <!-- Камера и управление -->
+            <a-entity ccamera position="0 1.6 0" look-controls wasd-controls>
+                <a-cursor></a-cursor>
+            </a-entity>
+
+            <a-plane static-body src="#inside_roof" position="0 3 7.5" rotation="-90 0 0" width="10" height="5" side="double"></a-plane>
+
+        </a-scene>
+        <script src="script.js"></script>
+    </body>
+</html>
