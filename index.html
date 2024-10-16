@@ -18,6 +18,9 @@
             <img id="floor" src="assets/floor.jpg">
             <img id="inside_roof" src="assets/inside_roof.jpg">
             <img id="door-texture" src="assets/door.png">
+            <a-assets-item id = "craftsman" src="assets/craftsman.glb">
+            <a-assets-item id = "bookshelf" src="assets/bookshelf.glb">
+            </a-assets-item>
         </a-assets>
         <a-entity environment="fog: 0; dressing: trees; dressingAmount: 100; dressingColor: #90a955; ground: hills; groundTexture: walkernoise; groundColor: #31572c; groundColor2: #132a13; dressingScale: 1; skyType: none"></a-entity>
         <a-sky src="#sky-image" rotation="0 -90 0"></a-sky>
@@ -73,6 +76,12 @@
 
         <a-plane static-body src="#inside_roof" position="0 3 7.5" rotation="-90 0 0" width="10" height="5" side="double"></a-plane>
 
+        <a-entity
+            id="craftsman" visible="true" scale="0.04 0.04 0.04" gltf-model = #craftsman position="3 0.12 3" rotation="0 180 0"></a-entity>
+        <a-entity
+            id="bookshelf" visible="true" scale="1 1 1" gltf-model = #bookshelf position="-4.5 0.12 -1" rotation="0 -90 0"></a-entity>
+        <a-entity
+            id="bookshelf" visible="true" scale="1 1 1" gltf-model = #bookshelf position="-4.5 0.12 -2" rotation="0 -90 0"></a-entity>
     </a-scene>
     <script src="script.js"></script>
 </body>
